@@ -1,4 +1,7 @@
 langchain
 langchain-google-genai
 langchain-community
+langchain-ollama
+duckduckgo-search
 python-dotenv
+

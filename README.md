@@ -1,39 +1,52 @@
-# Entorno de Desarrollo de Agente de IA (Gratis)
+# 🤖 Entorno de Desarrollo de Agentes de IA
 
-Acabo de configurarte esta carpeta con lo básico para que empieces a programar tu Agente de IA sin costo. 
+Este repositorio contiene implementaciones de agentes de IA listos para usar, tanto en la nube (Gemini) como 100% locales (Ollama con streaming, memoria y herramientas).
 
-## Pasos para probarlo (Puedes usar VS Code, PyCharm o la terminal de Antigravity):
+---
 
-### 1. Preparar el entorno (Python)
-Te recomiendo crear un entorno virtual para no mezclar librerías. Abre tu terminal en esta carpeta y ejecuta:
+## 🚀 Inicio Rápido
+
+### 1. Preparar el entorno de Python
+Abre tu terminal en esta carpeta y activa un entorno virtual:
 ```bash
 python -m venv venv
 .\venv\Scripts\activate
 ```
 
-### 2. Instalar las dependencias
-Instalamos LangChain (el framework estándar de la industria) y otras herramientas:
+### 2. Instalar dependencias
 ```bash
 pip install -r requirements.txt
 ```
 
-### 3. Elegir tu IA (Tienes 2 opciones preparadas)
+---
 
-#### Opción A: Usar Google Gemini (Archivo `agente_gemini.py`)
-Es en la nube, rapidísimo, y la API de desarrollador de Google es gratis.
-1. Ve a [Google AI Studio](https://aistudio.google.com/app/apikey) y genera una API Key gratis.
-2. Crea un archivo llamado `.env` en esta misma carpeta.
-3. Dentro del `.env`, escribe: `GOOGLE_API_KEY=tu_clave_aqui`
-4. Ejecuta el script:
+## 📂 Agentes Disponibles
+
+### 1. `agente_ollama.py` (Local, Privado, Streaming y Memoria)
+* **100% Local y privado** ejecutado con Ollama.
+* **Streaming en tiempo real:** Muestra la respuesta token por token en la consola.
+* **Memoria conversacional:** Recuerda el contexto durante la sesión.
+* **Comandos:** Escribe `salir` para terminar o `limpiar` para resetear el historial.
+
 ```bash
-python agente_gemini.py
+# Requiere tener Ollama abierto con el modelo descargado (ej: ollama run llama3)
+python agente_ollama.py
 ```
 
-#### Opción B: Usar Ollama (Archivo `agente_ollama.py`)
-Es 100% local, no usa internet, es privado, pero usa los recursos de tu PC (CPU/GPU).
-1. Descarga e instala [Ollama](https://ollama.com/).
-2. En tu terminal, descarga un modelo gratuito ejecutando: `ollama run llama3` (puede tardar un poco dependiendo de tu internet).
-3. Una vez listo, ejecuta el script:
+### 2. `agente_local_tools.py` (Agente Autónomo con Herramientas)
+* Capacidad de **Function Calling** con Ollama.
+* **Búsqueda Web:** Usa DuckDuckGo para buscar datos en vivo sin costo.
+* **Calculadora:** Resuelve expresiones matemáticas con precisión.
+
 ```bash
-python agente_ollama.py
+# Recomendado con modelos compatibles con Tool Calling (llama3.1, llama3.2 o qwen2.5)
+python agente_local_tools.py
+```
+
+### 3. `agente_gemini.py` (En la Nube con Google Gemini)
+* Rápido y ligero usando la API gratuita de Gemini.
+* Requiere clave en un archivo `.env` (`GOOGLE_API_KEY=AIzaSy...`).
+
+```bash
+python agente_gemini.py
 ```
